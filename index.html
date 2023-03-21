@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de medidas</title>
+</head>
+
+<body class="bg-primary-subtle">
+
+    <div class="container-sm bg-primary  text-center rounded" >
+        <h1  class="text-white">Conversor de medidas</h1>
+        <form>
+            <h1 class="text-white">Digite o valor a ser convertido</h1>
+            <input  class="rounded" id="valor1" type="text"></input>
+            <select  class="rounded" id="processo" >
+                
+                <option value="nada">Selecione sua conversão</option>
+                <option value="cm_polegadas">Cm em polegadas</option>
+                <option value="metros_pe">Metros em pés</option>
+                <option value="kilogramas_libras">Kilogramas em libras</option>
+            </select>
+         </form>
+
+         <div class="mt-5">
+        <button type="button" class="btn btn-info btn-lg" onclick="operacao()">Converter</button>
+        </div>
+        <div class="mt-5">
+        <input class="rounded bg-secondary-subtle text-black fst-italic" id="resultado" type="text" disabled></input>
+             </div>
+    </div>
+
+    <script>
+        function operacao() {
+            var valor1, processo, resultado;
+            valor1 = parseFloat(document.getElementById("valor1").value);
+            processo = document.getElementById("processo").value;
+
+
+
+            switch (processo) {
+                case "cm_polegadas":
+
+                    resultado = valor1 * 0.3937;
+                    break;
+
+                case "metros_pe":
+
+               resultado = valor1 * 3.28;
+                    break;
+
+                case "kilogramas_libras":
+
+                resultado = valor1 * 2.2046;
+                break;
+            }
+
+
+            document.getElementById("resultado").value = resultado.toFixed(2);
+
+
+        }
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+</body>
+
+</html>
